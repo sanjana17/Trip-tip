@@ -1,0 +1,28 @@
+
+<form name="budgetForm"layout="row" novalidate flex layout-align="center center">
+ 
+<br><br>
+<md-whiteframe class="md-whiteframe-4dp" flex="50" layout-padding layout-align="center center">
+
+<span hide-xs hide-sm flex-gt-sm="30" layout="row"></span>   
+<h3>create a group </h3>
+    <div layout="column">
+    
+    <md-input-container  layout-margin ng-if="!placeName">
+    <label>Enter the place name</label>
+    <input type="text" g-places-autocomplete name="placename" required data-ng-model="placeName" minlength="8">
+    <div ng-messages="budgetForm.placename.$error">
+         <div ng-message="required" >this is required.</div>
+    </div>
+    </md-input-container>
+    </div>
+    
+    <div layout="column" ng-if="budgetFields">
+        <h3>Enter the names of all group members</h3>
+        <md-chips ng-model="friends" readonly="readonly" md-max-chips="9" md-removable="removable"></md-chips>
+    </div>
+    <div layout="column" layout-align="center end">
+    <md-button class="md-raised md-warn" ng-click="next()">Next</md-button>
+    </div>
+ </md-whiteframe>
+ </form>

@@ -4,27 +4,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="/node_modules/angular-google-places-autocomplete/src/autocomplete.css">
+  <!-- font google-->
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <!-- google icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
-<body ng-app="BlankApp" ng-cloak>
-  <!--
-    Your HTML content here-->
-  
+<body ng-app="TripApp" ng-cloak>
+  <md-toolbar class="md-hue-2 " md-colors="{color: 'yellow-A100', 'border-color': 'primary-600'}">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+
+        <h2 flex md-truncate style="font-family: 'Lobster', cursive;font-size:30px">
+            <i class="material-icons">flight_takeoff</i>
+            Trip Tip
+        </h2>
+
+        <md-button class="md-icon-button" aria-label="add the trip budget" ng-href="#/addBudget" >
+          <i class="material-icons" md-colors="{color: 'red-A100', 'border-color': 'primary-600'}">add_circle</i>
+        </md-button>
+
+      </div>
+    </md-toolbar>
+    <p ng-controller="TripController"> {{greeting}}</p>
+  <div ng-view></div>
   <!-- Angular Material requires Angular.js Libraries -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
+  <!--Angular Routing -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+
   <!-- Angular Material Library -->
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-  
-  <!-- Your application bootstrap  -->
-  <script type="text/javascript">    
-    /**
-     * You must include the dependency on 'ngMaterial' 
-     */
-    angular.module('BlankApp', ['ngMaterial']);
-  </script>
+  <!--google auto complete-->
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="./node_modules/angular-google-places-autocomplete/src/autocomplete.js"></script>
+
+  <script type="text/javascript" src="./src/js/controllers/TripApp.js">  </script>
   
 </body>
 </html>
